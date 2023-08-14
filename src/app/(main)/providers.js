@@ -1,18 +1,20 @@
-"use client";
 import { Toaster } from "react-hot-toast";
 
+// layout
+import MainLayout from "@/layouts/Main";
+
 // theme
-import ThemeProvider from "../../layouts/theme";
+import ThemeProvider from "@/layouts/theme";
 
 // context
-import SettingsProvider from "../../features/context/SettingsContext";
+import SettingsProvider from "@/context/SettingsContext";
 
 const Providers = ({ children }) => {
    return (
       <SettingsProvider>
          <ThemeProvider>
             <Toaster />
-            {children}
+            <MainLayout>{children}</MainLayout>
          </ThemeProvider>
       </SettingsProvider>
    );

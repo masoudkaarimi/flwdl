@@ -1,6 +1,11 @@
 import "./globals.css";
-import Providers from "./providers";
 import { Poppins } from "next/font/google";
+
+// providers
+import Providers from "./providers";
+
+// config
+import { APP_NAME } from "@/config";
 
 const poppins = Poppins({
    weight: "400",
@@ -11,7 +16,7 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-   title: "FLWDL | Home",
+   title: `${APP_NAME} | Home`,
    description: "Downloader Wep Application",
 };
 
@@ -19,9 +24,7 @@ export default function RootLayout({ children }) {
    return (
       <html lang="en">
          <body className={poppins.className}>
-            <main>
-               <Providers>{children}</Providers>
-            </main>
+            <Providers>{children}</Providers>
          </body>
       </html>
    );

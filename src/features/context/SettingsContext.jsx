@@ -1,11 +1,11 @@
 "use client";
-import { createContext } from "react";
+import { createContext, useEffect } from "react";
 
 // config
-import { defaultSettings } from "../../config";
+import { defaultSettings } from "@/config";
 
 // hooks
-import useLocalStorage from "../hooks/useLocalStorage";
+import useLocalStorage from "@/hooks/useLocalStorage";
 
 const initialState = {
    ...defaultSettings,
@@ -26,6 +26,10 @@ export default function SettingsProvider({ children }) {
       themeLayout: initialState.themeLayout,
       themeStretch: initialState.themeStretch,
    });
+
+   useEffect(()=> {
+      setSettings(settings);
+   }, [])
 
    const onChangeMode = (event) => {
       setSettings({ ...settings, themeMode: event.target.value });

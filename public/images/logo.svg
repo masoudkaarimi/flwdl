@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="207" height="68.462" viewBox="0 0 207 68.462">
+    <g id="logo" transform="translate(2 2)">
+        <g id="Group_106" data-name="Group 106">
+            <path id="Path_22" data-name="Path 22" d="M19.13,65.462A18.13,18.13,0,0,1,1,47.332V19.13A18.13,18.13,0,0,1,19.13,1h28.2a18.13,18.13,0,0,1,18.13,18.13V65.462H19.13Z" transform="translate(-1 -1)" fill="none" stroke="#000" stroke-linejoin="round" stroke-width="4"/>
+            <path id="Path_23" data-name="Path 23" d="M11.439,8.59A2.014,2.014,0,0,0,8.59,11.439Zm31.337,36.2a2.015,2.015,0,0,0,2.014-2.014V24.646a2.014,2.014,0,1,0-4.029,0V40.762H24.647a2.014,2.014,0,1,0,0,4.029ZM8.59,11.439,41.352,44.2,44.2,41.351,11.439,8.59Z" transform="translate(6.102 6.101)"/>
+        </g>
+        <text id="FLWDL" transform="translate(80 46)" font-size="40" font-family="Poppins-Medium, Poppins" font-weight="500"><tspan x="0" y="0">FLWDL</tspan></text>
+    </g>
+</svg>

@@ -1,6 +1,17 @@
 {
   "compilerOptions": {
     "paths": {
+      "@/public/*": ["./public/*"],
+      "@/assets/*": ["./src/assets/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/config/*": ["./src/config/*"],
+      "@/features/*": ["./src/features/*"],
+      "@/context/*": ["./src/features/context/*"],
+      "@/hooks/*": ["./src/features/hooks/*"],
+      "@/services/*": ["./src/features/services/*"],
+      "@/validations/*": ["./src/features/validations/*"],
+      "@/paths/*": ["./src/paths/*"],
+      "@/utils/*": ["./src/utils/*"],
       "@/*": ["./src/*"]
     }
   }

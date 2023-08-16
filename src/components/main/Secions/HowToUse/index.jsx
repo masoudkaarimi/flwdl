@@ -66,7 +66,7 @@ export default function HowToUse({ data }) {
                      flexDirection: "column",
                      justifyContent: "center",
                      alignItems: "center",
-                     bgcolor: "secondary.main",
+                     background: `linear-gradient(to bottom, ${theme.palette.secondary.main}, ${theme.palette.third.main})`,
                      color: "common.white",
                      borderRadius: `${theme.shape.borderRadius}px`,
                      boxShadow: theme.customShadows.secondary,

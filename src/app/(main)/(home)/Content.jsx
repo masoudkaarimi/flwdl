@@ -1,29 +1,216 @@
 "use client";
-import Features from "@/components/main/Features";
-import HowToUse from "@/components/main/HowToUse";
+import { useState } from "react";
 import Image from "next/image";
-import { Box, Grid, Typography } from "@mui/material";
+import Link from "next/link";
+import { Box, Button, Grid, InputAdornment, InputBase, Stack, Tab, Typography } from "@mui/material";
+import { ContentPasteOutlined, FileDownloadOutlined, LinkOutlined } from "@mui/icons-material";
+import Tabs, { tabsClasses } from "@mui/material/Tabs";
+
 import { useTheme } from "@mui/material/styles";
 
 // config
 import { APP_NAME } from "@/config";
 
 // components
+import SubHeading from "@/components/main/SubHeading";
 import BoxContent from "@/components/BoxContent";
-import OurServices from "@/components/main/OurServices";
-import WhyUseUs from "@/components/main/WhyUseUs";
-import Faqs from "@/components/main/Faqs";
+import Features from "@/components/main/Secions/Features";
+import HowToUse from "@/components/main/Secions/HowToUse";
+import OurServices from "@/components/main/Secions/OurServices";
+import WhyUseUs from "@/components/main/Secions/WhyUseUs";
+import Faqs from "@/components/main/Secions/Faqs";
 
 export default function Content() {
+   const [tab, setTab] = useState(0);
    const theme = useTheme();
+   const handleChangeTab = (event, newValue) => {
+      setTab(newValue);
+   };
+
+   const SERVICES = [
+      { id: 1, title: "Photos" },
+      { id: 2, title: "Videos" },
+      { id: 3, title: "Profile" },
+      { id: 4, title: "IGTVs" },
+      { id: 5, title: "Reels" },
+      { id: 6, title: "Profile Picture" },
+      { id: 7, title: "Stories" },
+      { id: 8, title: "Posts" },
+      { id: 9, title: "Highlights" },
+   ];
+
    return (
       <>
+         {/* Heading */}
+         <SubHeading>
+            <Typography variant={"h1"} component={"h1"} gutterBottom>
+               Instagram Downloader
+            </Typography>
+
+            <Stack flexDirection={"row"} alignItems={"baseline"} gap={1}>
+               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="20" viewBox="0 0 30.135 27.875">
+                  <path
+                     d="M22.107,23.928a40.613,40.613,0,0,1-3.646,2.563c-.451.283-.9.556-1.407.86-.511-.3-.957-.577-1.407-.862A40.544,40.544,0,0,1,12,23.928C7.51,20.357,5,16.456,5,12.02,5,8.488,7.35,5.993,10.273,5.993a6.943,6.943,0,0,1,4.65,2.131l2.131,2.131,2.131-2.131a6.943,6.943,0,0,1,4.65-2.131c2.958,0,5.274,2.471,5.274,6.027,0,4.434-2.509,8.337-7,11.908ZM32.121,12.02c0-5.274-3.71-9.041-8.287-9.041a9.97,9.97,0,0,0-6.78,3.014,9.97,9.97,0,0,0-6.78-3.014c-4.52,0-8.287,3.767-8.287,9.041,0,10.547,11.3,16.574,15.068,18.834,3.767-2.26,15.068-8.287,15.068-18.834Z"
+                     transform="translate(-1.986 -2.979)"
+                     fill="#ff6363"
+                  />
+               </svg>
+               <Typography
+                  variant={"h3"}
+                  component={"h3"}
+                  color={"grey.300"}
+                  fontWeight={theme.typography.fontWeightLight}
+                  gutterBottom
+               >
+                  Fast and free all in one Instagram downloader
+               </Typography>
+            </Stack>
+            <Typography
+               variant={"h3"}
+               component={"h3"}
+               color={"grey.300"}
+               fontWeight={theme.typography.fontWeightLight}
+               sx={{ mt: 3, mb: 6 }}
+            >
+               Download Instagram <strong>🖼️ Photos</strong>
+            </Typography>
+
+            <Box
+               sx={{
+                  bgcolor: "rgba(0 0 0 / 35%)",
+                  my: 3,
+                  p: 4,
+                  borderRadius: `${theme.shape.borderRadius * 2}px`,
+               }}
+            >
+               <Stack flexDirection={"row"} justifyContent={"center"}>
+                  <Tabs
+                     value={tab}
+                     onChange={handleChangeTab}
+                     variant={"scrollable"}
+                     // indicatorColor={"transparent"}
+                     scrollButtons
+                     sx={{
+                        [`& .MuiTabs-flexContainer`]: {
+                           gap: 0.5,
+                        },
+                        [`& .${tabsClasses.indicator}`]: {
+                           height: 1,
+                           background: `linear-gradient(to right, ${theme.palette.secondary.main}, ${theme.palette.third.main})`,
+                           borderRadius: `${theme.shape.borderRadius}px`,
+                        },
+                        [`& .${tabsClasses.scrollButtons}`]: {
+                           "&.Mui-disabled": { opacity: 0.3 },
+                        },
+                     }}
+                  >
+                     {SERVICES.map((item) => (
+                        <Tab
+                           key={item.id}
+                           sx={{
+                              borderRadius: `${theme.shape.borderRadius}px`,
+                              color: "grey.400",
+                              bgcolor: "rgba(0 0 0 / 20%)",
+                              fontWeight: theme.typography.fontWeightRegular,
+                              ...(tab === item.id - 1 && {
+                                 bgcolor: "transparent",
+                                 zIndex: 1,
+                                 fontWeight: theme.typography.fontWeightMedium,
+                                 color: "white !important",
+                              }),
+                           }}
+                           label={item.title}
+                        />
+                     ))}
+                  </Tabs>
+               </Stack>
+
+               <Box sx={{ my: 5, px: 25 }}>
+                  <Typography variant={"body2"} color={"grey.200"}>
+                     📌 Press CTRL + D to bookmark this page.
+                  </Typography>
+                  <Box
+                     component="form"
+                     sx={{
+                        width: 1,
+                        my: 1.5,
+                        bgcolor: "rgba(0 0 0 / 30%)",
+                        py: 2,
+                        px: 1.2,
+                        border: `3px solid ${theme.palette.secondary.main}`,
+                        borderRadius: `${theme.shape.borderRadius * 1.5}px`,
+                        display: "flex",
+                        alignItems: "center",
+                     }}
+                  >
+                     <InputBase
+                        sx={{
+                           flex: 1,
+                           color: "common.white",
+                        }}
+                        inputProps={{
+                           sx: {
+                              fontSize: 14,
+                           },
+                        }}
+                        placeholder="Enter a username, profile link, post link, or shortcode"
+                        startAdornment={
+                           <InputAdornment position="start">
+                              <LinkOutlined sx={{ color: "grey.300" }} />
+                           </InputAdornment>
+                        }
+                        endAdornment={
+                           <InputAdornment position="end">
+                              <Button
+                                 variant={"text"}
+                                 size={"large"}
+                                 color={"primary"}
+                                 startIcon={<ContentPasteOutlined />}
+                                 sx={{
+                                    mr: 1,
+                                    px: 1.5,
+                                    bgcolor: "rgba(0 0 0 / 30%)",
+                                    color: "grey.400",
+                                    fontWeight: theme.typography.fontWeightRegular,
+                                 }}
+                              >
+                                 Paste
+                              </Button>
+                              <Button
+                                 variant={"contained"}
+                                 size={"large"}
+                                 color={"secondary"}
+                                 startIcon={<FileDownloadOutlined />}
+                                 sx={{
+                                    fontWeight: theme.typography.fontWeightMedium,
+                                    px: 1.5,
+                                    background: `linear-gradient(to right, ${theme.palette.secondary.main}, ${theme.palette.third.main})`,
+                                 }}
+                              >
+                                 Download
+                              </Button>
+                           </InputAdornment>
+                        }
+                     />
+                  </Box>
+                  <Typography variant={"body2"} color={"grey.200"}>
+                     By downloading this video, you agree to the{" "}
+                     <Link href={"terms"}>
+                        <Typography component={"b"} color={"info.main"}>
+                           Fair Use Policy.
+                        </Typography>
+                     </Link>
+                  </Typography>
+               </Box>
+            </Box>
+         </SubHeading>
+
          {/* Features */}
          <BoxContent
             contentWidth={"boxed"}
             rounded
             bgColor={theme.palette.background.default}
-            sx={{ py: 3, my: 6, boxShadow: "0px 50px 50px rgb(0 0 0 / 8%)" }}
+            sx={{ py: 3, mt: -15, mb: 10, boxShadow: "0px 50px 50px rgb(0 0 0 / 8%)" }}
          >
             <Typography
                variant="h3"
@@ -109,7 +296,7 @@ export default function Content() {
             </Grid>
          </BoxContent>
 
-         {/* Contents */}
+         {/* Content */}
          <BoxContent contentWidth={"boxed"} sx={{ py: 3, my: 6 }}>
             <Grid container spacing={5}>
                <Grid item xs={12} sm={4}>
@@ -140,7 +327,7 @@ export default function Content() {
             </Grid>
          </BoxContent>
 
-         {/* Contents */}
+         {/* Content */}
          <BoxContent contentWidth={"boxed"} sx={{ py: 3, my: 6 }}>
             <Grid container spacing={5}>
                <Grid item xs={12} sm={8}>

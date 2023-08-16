@@ -4,7 +4,6 @@
       "@/public/*": ["./public/*"],
       "@/assets/*": ["./src/assets/*"],
       "@/components/*": ["./src/components/*"],
-      "@/paths/*": ["./src/config/paths/*"],
       "@/config/*": ["./src/config/*"],
       "@/context/*": ["./src/features/context/*"],
       "@/hooks/*": ["./src/features/hooks/*"],

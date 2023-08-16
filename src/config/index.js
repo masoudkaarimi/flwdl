@@ -5,6 +5,13 @@ export const APP_BASE_API_URL = process.env.NEXT_PUBLIC_APP_BASE_API_URL;
 export const BASE_API_URL = process.env.BASE_API_URL;
 export const BASE_API_KEY = process.env.BASE_API_KEY;
 
+// LAYOUT
+export const HEADER = {
+    DESKTOP_HEIGHT: 80,
+    MOBILE_HEIGHT: 60,
+};
+
+
 export const defaultSettings = {
     themeMode: "light",
     themeDirection: "ltr",

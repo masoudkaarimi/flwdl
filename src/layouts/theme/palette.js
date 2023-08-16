@@ -16,6 +16,14 @@ const SECONDARY = {
     darker: "#993d1e",
     contrast: "#fff0eb",
 };
+const THIRD = {
+    lighter: "#f4919f",
+    light: "#f16d7f",
+    main: "#ED485F",
+    dark: "#be3a4c",
+    darker: "#8e2b39",
+    contrast: "#fdedef",
+};
 
 const INFO = {
     lighter: "#f1f9ff",
@@ -75,6 +83,7 @@ const COMMON = {
     common: { black: "#000", white: "#fff" },
     primary: { ...PRIMARY, contrastText: "#fff" },
     secondary: { ...SECONDARY, contrastText: "#fff" },
+    third: { ...THIRD, contrastText: "#fff" },
     info: { ...INFO, contrastText: "#fff" },
     success: { ...SUCCESS, contrastText: GREY[800] },
     warning: { ...WARNING, contrastText: GREY[800] },

@@ -4,13 +4,13 @@
       "@/public/*": ["./public/*"],
       "@/assets/*": ["./src/assets/*"],
       "@/components/*": ["./src/components/*"],
+      "@/paths/*": ["./src/config/paths/*"],
       "@/config/*": ["./src/config/*"],
-      "@/features/*": ["./src/features/*"],
       "@/context/*": ["./src/features/context/*"],
       "@/hooks/*": ["./src/features/hooks/*"],
       "@/services/*": ["./src/features/services/*"],
       "@/validations/*": ["./src/features/validations/*"],
-      "@/paths/*": ["./src/paths/*"],
+      "@/features/*": ["./src/features/*"],
       "@/utils/*": ["./src/utils/*"],
       "@/*": ["./src/*"]
     }

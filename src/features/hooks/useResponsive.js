@@ -1,4 +1,5 @@
-import { useTheme, useMediaQuery } from "@mui/material";
+import { useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 
 export default function useResponsive(query, key, start, end) {
    const theme = useTheme();

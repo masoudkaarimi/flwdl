@@ -52,6 +52,7 @@ const createCustomShadow = (color) => {
 
         primary: `0 8px 16px 0 ${alpha(palette.light.primary.main, 0.24)}`,
         secondary: `0 8px 16px 0 ${alpha(palette.light.secondary.main, 0.24)}`,
+        third: `0 8px 16px 0 ${alpha(palette.light.third.main, 0.24)}`,
         info: `0 8px 16px 0 ${alpha(palette.light.info.main, 0.24)}`,
         success: `0 8px 16px 0 ${alpha(palette.light.success.main, 0.24)}`,
         warning: `0 8px 16px 0 ${alpha(palette.light.warning.main, 0.24)}`,

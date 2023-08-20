@@ -1,4 +1,5 @@
 "use client";
+import SvgIcon from "@/components/SvgIcon";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -28,15 +29,15 @@ export default function Content() {
    };
 
    const SERVICES = [
-      { id: 1, title: "Photos" },
-      { id: 2, title: "Videos" },
-      { id: 3, title: "Profile" },
-      { id: 4, title: "IGTVs" },
-      { id: 5, title: "Reels" },
-      { id: 6, title: "Profile Picture" },
-      { id: 7, title: "Stories" },
-      { id: 8, title: "Posts" },
-      { id: 9, title: "Highlights" },
+      { id: 1, title: "Photos", icon: <SvgIcon name={"instagram/photos"} /> },
+      { id: 2, title: "Videos", icon: <SvgIcon name={"instagram/videos"} /> },
+      { id: 3, title: "Profile", icon: <SvgIcon name={"instagram/profile"} /> },
+      { id: 4, title: "IGTVs", icon: <SvgIcon name={"instagram/igtvs"} /> },
+      { id: 5, title: "Reels", icon: <SvgIcon name={"instagram/reels"} /> },
+      { id: 6, title: "Profile Picture", icon: <SvgIcon name={"instagram/profile-picture"} /> },
+      { id: 7, title: "Stories", icon: <SvgIcon name={"instagram/stories"} /> },
+      { id: 8, title: "Posts", icon: <SvgIcon name={"instagram/posts"} /> },
+      { id: 9, title: "Highlights", icon: <SvgIcon name={"instagram/highlights"} /> },
    ];
 
    return (
@@ -88,14 +89,14 @@ export default function Content() {
                      value={tab}
                      onChange={handleChangeTab}
                      variant={"scrollable"}
-                     // indicatorColor={"transparent"}
                      scrollButtons
                      sx={{
                         [`& .MuiTabs-flexContainer`]: {
                            gap: 0.5,
                         },
                         [`& .${tabsClasses.indicator}`]: {
-                           height: 1,
+                           height: 45,
+                           top:0,
                            background: `linear-gradient(to right, ${theme.palette.secondary.main}, ${theme.palette.third.main})`,
                            borderRadius: `${theme.shape.borderRadius}px`,
                         },
@@ -111,6 +112,8 @@ export default function Content() {
                               borderRadius: `${theme.shape.borderRadius}px`,
                               color: "grey.400",
                               bgcolor: "rgba(0 0 0 / 20%)",
+                              gap: 0.5,
+                              minHeight: 45,
                               fontWeight: theme.typography.fontWeightRegular,
                               ...(tab === item.id - 1 && {
                                  bgcolor: "transparent",
@@ -120,6 +123,8 @@ export default function Content() {
                               }),
                            }}
                            label={item.title}
+                           icon={item.icon}
+                           iconPosition={"start"}
                         />
                      ))}
                   </Tabs>
@@ -299,16 +304,17 @@ export default function Content() {
          {/* Content */}
          <BoxContent contentWidth={"boxed"} sx={{ py: 3, my: 6 }}>
             <Grid container spacing={5}>
-               <Grid item xs={12} sm={4}>
+               <Grid item xs={12} sm={6}>
                   <Image
-                     src={"/images/placeholder.webp"}
-                     width={"350"}
-                     height={"250"}
+                     src={"/images/13.webp"}
+                     width={"440"}
+                     height={"320"}
                      alt={"Image Placeholder"}
+                     priority
                      style={{ borderRadius: "7px" }}
                   />
                </Grid>
-               <Grid item xs={12} sm={8}>
+               <Grid item xs={12} sm={6}>
                   <Typography variant="h3" component="h3">
                      Why Should You Download Instagram Photos?
                   </Typography>

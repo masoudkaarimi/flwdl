@@ -1,4 +1,4 @@
-FROM node:16
+FROM node:18
 WORKDIR /usr/src/flwdl
 COPY package*.json /usr/src/flwdl
 

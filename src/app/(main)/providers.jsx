@@ -4,7 +4,7 @@ import { Toaster } from "react-hot-toast";
 import MainLayout from "@/layouts/Main";
 
 // theme
-import ThemeProvider from "@/layouts/theme";
+import ThemeProvider from "@/layouts/theme/ThemeProvider";
 
 // context
 import SettingsProvider from "@/context/SettingsContext";

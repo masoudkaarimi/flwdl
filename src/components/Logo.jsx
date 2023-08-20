@@ -1,33 +1,13 @@
-import Image from "next/image";
+import SvgIcon from "@/components/SvgIcon";
 import Link from "next/link";
 
-// config
-import { APP_NAME } from "@/config";
-
-// public
-import logo from "@/public/images/logo.svg";
-import logoMini from "@/public/images/logo-mini.svg";
-
-export default function Logo({ disabledLink = false, mini = false, width, height }) {
-   if (disabledLink) {
-      return (
-         <>
-            {mini ? (
-               <Image src={logoMini} alt={`${APP_NAME} Logo`} width={width} height={height} />
-            ) : (
-               <Image src={logo} alt={`${APP_NAME} Logo`} width={width} height={height} />
-            )}
-         </>
-      );
-   }
-
-   return (
-      <Link href="/">
-         {mini ? (
-            <Image src={logoMini} alt={`${APP_NAME} Logo`} width={width} height={height} />
-         ) : (
-            <Image src={logo} alt={`${APP_NAME} Logo`} width={width} height={height} />
-         )}
-      </Link>
+export default function Logo({ disabledLink = false, mini = false, width, height, sx }) {
+   const logo = <SvgIcon src={"/images/logo.svg"} sx={[{ width, height }, ...(Array.isArray(sx) ? sx : [sx])]} />;
+   const logoMini = (
+      <SvgIcon src={"/images/logo-mini.svg"} sx={[{ width, height }, ...(Array.isArray(sx) ? sx : [sx])]} />
    );
+
+   if (disabledLink) return mini ? logoMini : logo;
+
+   return <Link href="/">{mini ? logoMini : logo}</Link>;
 }

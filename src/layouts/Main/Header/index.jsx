@@ -15,10 +15,8 @@ import useResponsive from "@/hooks/useResponsive";
 import Logo from "@/components/Logo";
 import navConfig from "./NavConfig";
 
-const RootStyle = styled(AppBar, {
-   shouldForwardProp: (prop) => prop !== "isCollapse" && prop !== "isOffset",
-})(({ isCollapse, isOffset, theme }) => ({
-   backgroundColor: "rgba(0 0 0 / 50%)",
+const RootStyle = styled(AppBar, { shouldForwardProp: (prop) => prop !== "isOffset" })(({ isOffset, theme }) => ({
+   background: theme.palette.primary.darker,
    boxShadow: "none",
    height: HEADER.MOBILE_HEIGHT,
    zIndex: theme.zIndex.appBar,
@@ -28,8 +26,10 @@ const RootStyle = styled(AppBar, {
    [theme.breakpoints.up("lg")]: {
       height: HEADER.DESKTOP_HEIGHT,
       justifyContent: "center",
-      // ...(isCollapse && { width: `calc(100% - ${NAVBAR.DASHBOARD_COLLAPSE_WIDTH}px)` }),
-      ...(isOffset && { boxShadow: "0 15px 15px rgba(0 0 0 / 10%)" }),
+      ...(isOffset && {
+         background: `linear-gradient(to right, ${theme.palette.primary.dark} 10%, ${theme.palette.primary.darker} 90%)`,
+         boxShadow: "0 10px 20px rgba(0 0 0 / 20%)",
+      }),
    },
 }));
 
@@ -46,13 +46,12 @@ export default function Header() {
    };
 
    const isOffset = useOffSetTop(HEADER.DESKTOP_HEIGHT);
-   // const isDesktop = useResponsive("up", "lg");
-   // const isNotDesktop = useResponsive("down", "lg");
+   const isDesktop = useResponsive("up", "lg");
 
    return (
       <RootStyle component={"header"} isOffset={isOffset}>
          <Toolbar component={Container} maxWidth={"xl"}>
-            <Logo width={"130"} height={"50"} />
+            <Logo width={120} height={50} />
 
             {/* Menu Items */}
             <Stack direction="row" justifyContent="center" sx={{ px: 0.5, mx: "auto" }}>

@@ -1,34 +1,84 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# FLWDL
 
-## Getting Started
+The Ultimate Social Media Downloader
 
-First, run the development server:
+FLWDL is a modern web application that allows users to download multimedia content from a wide range of social media platforms effortlessly. Download videos, images, and other
+media files without restrictions, all in one place. FLWDL offers a simple, efficient, and integrated solution for saving your favorite content from social networks.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+![Screenshot](screenshots/screenshot-1-min.png)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.jsx`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Download videos, images, and media from major social platforms (Instagram, TikTok, YouTube, Twitter, Facebook, Pinterest, Telegram, Tumblr, etc.)
+- Fast, user-friendly interface
+- Multi-language support (English, Persian)
+- Responsive design (Next.js, CSS)
+- No registration required
+- Dark/light theme support
+- Clipboard integration for easy pasting of links
+- Platform-specific download tools and guides
+- Dockerized for easy deployment
 
-## Learn More
+## Technology Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Frontend:** Next.js (React), CSS Modules
+- **Backend:** Next.js API routes
+- **Containerization:** Docker, Docker Compose
+- **Other Libraries:**
+    - RapidAPI (for some platform integrations)
+    - i18next (internationalization)
+    - Custom hooks and context for state management
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Requirements
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Docker & Docker Compose (recommended)
+- Or, for manual setup:
+    - Node.js 18+
+    - pnpm (or npm/yarn)
 
-## Deploy on Vercel
+## Quick Start (with Docker)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/masoudkaarimi/flwdl.git
+   cd flwdl
+   ```
+2. **Configure environment variables:**
+    - Copy `.env.example` to `.env` and set your API keys/secrets.
+3. **Build and run the containers:**
+   ```bash
+   docker compose up --build
+   ```
+4. **Access the app:**
+    - Web: http://localhost:3000
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Manual Setup (without Docker)
+
+1. Install dependencies:
+   ```bash
+   pnpm install
+   # or
+   npm install
+   ```
+2. Copy `.env.example` to `.env` and set your API keys/secrets.
+3. Run the development server:
+   ```bash
+   pnpm dev
+   # or
+   npm run dev
+   ```
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Docker Compose Services
+
+- **app:** Main Next.js application
+
+## Screenshots
+
+See the [`screenshots/`](screenshots/) directory for UI examples.
+
+## License
+
+This project is licensed under the MIT License.

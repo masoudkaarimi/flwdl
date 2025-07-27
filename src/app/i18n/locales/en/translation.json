@@ -1,0 +1,62 @@
+{
+  "app": {
+    "name": "FLWDL"
+  },
+  "common": {
+    "save-changes": "save changes",
+    "save": "save",
+    "done": "done",
+    "cancel": "cancel",
+    "notice": "notice",
+    "info": "info",
+    "success": "success",
+    "danger": "danger",
+    "warning": "warning",
+    "in-queue": "in queue",
+    "in-process": "in process",
+    "skipped": "skipped",
+    "troubled": "troubled",
+    "start": "start",
+    "end": "end",
+    "active": "active",
+    "inactive": "inactive",
+    "activate": "activate",
+    "deactivate": "deactivate",
+    "running": "running",
+    "cancellation": "cancellation",
+    "allowed": "allowed",
+    "not-allowed": "not allowed",
+    "pending": "pending",
+    "accepted": "accepted",
+    "rejected": "rejected",
+    "never": "never",
+    "hourly": "hourly",
+    "daily": "daily",
+    "every-two-day": "every two day",
+    "every-three-day": "every three day",
+    "weekly": "Weekly",
+    "mobile": "mobile",
+    "email": "email",
+    "password": "password",
+    "confirm-password": "confirm password",
+    "fullName": "full name"
+  },
+  "errors": {
+    "not-found": "Can't find {{-url}} on the server."
+  },
+  "validation": {
+    "required": "{{field}} is required.",
+    "integer": "The value of {{field}} must be numeric.",
+    "string": "The value of {{field}} must be string.",
+    "incorrect": "The format entered for {{field}} is not valid.",
+    "correct": "The format entered for {{field}} is valid.",
+    "already-exists": "{{field}} is already exists.",
+    "not-exists": "{{field}} is not exists.",
+    "max": "The maximum value for {{field}} is {{limit}} character.",
+    "min": "The minimum value for {{field}} is {{limit}} character.",
+    "invalid": "{{field}} is invalid.",
+    "valid": "{{field}} is valid.",
+    "not-match": "{{field}} does not match {{target}}.",
+    "match": "{{field}} do match {{target}}."
+  }
+}

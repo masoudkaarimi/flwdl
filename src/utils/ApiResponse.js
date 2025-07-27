@@ -1,5 +1,5 @@
 export default class ApiResponse {
-   static send({ success = true, message, data = null, status = 200, options }) {
+   static send({ success = true, message, data = null, status = 200, options, headers = {} }) {
       return Response.json(
          {
             success,
@@ -11,47 +11,47 @@ export default class ApiResponse {
             data,
             ...options,
          },
-         { status },
+         { status, headers },
       );
    }
 
-   static fail({ message, status = 400, options } = {}) {
-      return this.send({ success: false, message, status, options });
+   static fail({ message, status = 400, headers, options } = {}) {
+      return this.send({ success: false, message, status, headers , options});
    }
 
-   static ok(data, { message, status = 200, options } = {}) {
-      return this.send({ success: true, data, message, status, options });
+   static ok(data, { message, status = 200, headers, options } = {}) {
+      return this.send({ success: true, data, message, status, headers, options });
    }
 
-   static created(data, { message, status = 201, options } = {}) {
-      return this.send({ success: true, data, message, status, options });
+   static created(data, { message, status = 201, headers, options } = {}) {
+      return this.send({ success: true, data, message, status, headers, options });
    }
 
-   static unauthorized({ message, status = 401, options } = {}) {
-      return this.send({ success: false, message, status, options });
+   static unauthorized({ message, status = 401, headers, options } = {}) {
+      return this.send({ success: false, message, status, headers, options });
    }
 
-   static forbidden({ message, status = 403, options } = {}) {
-      return this.send({ success: false, message, status, options });
+   static forbidden({ message, status = 403, headers, options } = {}) {
+      return this.send({ success: false, message, status, headers, options });
    }
 
-   static notFound({ message, status = 404, options } = {}) {
-      return this.send({ success: false, message, status, options });
+   static notFound({ message, status = 404, headers, options } = {}) {
+      return this.send({ success: false, message, status, headers, options });
    }
 
-   static badRequest({ message, status = 400, options } = {}) {
-      return this.send({ success: false, message, status, options });
+   static badRequest({ message, status = 400, headers, options } = {}) {
+      return this.send({ success: false, message, status, headers, options });
    }
 
-   static tooManyRequests({ message, status = 429, options } = {}) {
-      return this.send({ success: false, message, status, options });
+   static tooManyRequests({ message, status = 429, headers, options } = {}) {
+      return this.send({ success: false, message, status, headers, options });
    }
 
-   static serviceUnavailable({ message, status = 503, options } = {}) {
-      return this.send({ success: false, message, status, options });
+   static serviceUnavailable({ message, status = 503, headers, options } = {}) {
+      return this.send({ success: false, message, status, headers, options });
    }
 
-   static internalServerError({ message = { text: "Oops! Something went wrong" }, status = 500, options } = {}) {
-      return this.send({ success: false, message, status, options });
+   static internalServerError({ message = { text: "Oops! Something went wrong" }, status = 500, headers, options } = {}) {
+      return this.send({ success: false, message, status, headers, options });
    }
 }

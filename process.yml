@@ -1,0 +1,7 @@
+apps:
+  - script: npm
+    args: start
+    name: nextjs-app
+    watch: false
+    env:
+      NODE_ENV: production

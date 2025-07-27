@@ -8,6 +8,8 @@ export default async function sitemap() {
       urls.push({
          url: `${APP_BASE_URL}/${page}`,
          lastModified: new Date(),
+         changeFrequency: "weekly",
+         priority: 0.5,
       });
    }
 

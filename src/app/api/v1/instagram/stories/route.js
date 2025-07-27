@@ -4,10 +4,12 @@ import { APP_BASE_API_URL, RAPID_API_HOST, RAPID_API_KEY, RAPID_API_URL } from "
 // utils
 import ApiResponse from "@/utils/ApiResponse";
 
-export const GET = async (request) => {
+export async function GET(request) {
    const { searchParams } = new URL(request.url);
    const username = searchParams.get("username");
    const type = searchParams.get("type"); // stories
+
+   console.log("Before request to stories");
 
    if (!username) {
       return ApiResponse.badRequest({ message: { text: "username is required" } });
@@ -21,7 +23,6 @@ export const GET = async (request) => {
       // Get user id
       const getUserId = await fetch(`${APP_BASE_API_URL}/v1/instagram/user_id/?username=${username}`, {
          method: "GET",
-         headers: { "X-RapidAPI-Key": RAPID_API_KEY, "X-RapidAPI-Host": RAPID_API_HOST },
       });
       const user = await getUserId.json();
 
@@ -35,8 +36,10 @@ export const GET = async (request) => {
          });
          const data = await response.json();
 
+         console.log("After request to stories", data);
+
          if (response.status === 200) {
-            return ApiResponse.ok(data);
+            return ApiResponse.ok({ type, ...data });
          } else {
             return ApiResponse.fail({ message: { text: data }, status: response.status });
          }
@@ -46,4 +49,4 @@ export const GET = async (request) => {
    } catch (error) {
       return ApiResponse.internalServerError();
    }
-};
+}

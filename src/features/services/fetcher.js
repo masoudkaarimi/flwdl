@@ -1,7 +1,5 @@
 export default async function fetcher({ url, method = "GET", headers = {}, body, params = {}, ...options }) {
    try {
-      console.log(options); // todo check
-
       const searchParams = new URLSearchParams(params).toString();
       const response = await fetch(searchParams ? `${url}?${searchParams}` : url, {
          method,
@@ -16,11 +14,14 @@ export default async function fetcher({ url, method = "GET", headers = {}, body,
 
       const data = await response.json();
 
-      if (!response.ok) {
-         const error = new Error(data.message || "Request failed");
-         error.status = response.status;
-         throw error;
-      }
+      console.log('errrrrrrrrrrrrrrrrrrror ---------------', data);
+
+
+      // if (response.status !== 200) {
+         // const error = new Error(data.message || "Request failed");
+         // error.status = response.status;
+         // throw error;
+      // }
 
       return data;
    } catch (error) {

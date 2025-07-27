@@ -9,7 +9,7 @@ const remToPx = (value) => {
 const typography = {
     htmlFontSize: 16,
     fontSize: 14,
-    fontFamily: ["Poppins", "Public Sans", "Roboto", "Helvetica", "Arial", "sans-serif"].join(","),
+    fontFamily: ["Poppins", "sans-serif"].join(","),
     fontWeightRegular: 400,
     fontWeightMedium: 600,
     fontWeightBold: 700,

@@ -4,10 +4,12 @@ import { RAPID_API_HOST, RAPID_API_KEY, RAPID_API_URL } from "@/config";
 // utils
 import ApiResponse from "@/utils/ApiResponse";
 
-export const GET = async (request) => {
+export async function GET(request) {
    const { searchParams } = new URL(request.url);
    const username = searchParams.get("username");
    const type = searchParams.get("type"); // profile, profile_picture
+
+   console.log("Before request to profile");
 
    if (!username) {
       return ApiResponse.badRequest({ message: { text: "username is required" } });
@@ -21,15 +23,20 @@ export const GET = async (request) => {
       const response = await fetch(`${RAPID_API_URL}/info_username/?user=${username}`, {
          method: "GET",
          headers: { "X-RapidAPI-Key": RAPID_API_KEY, "X-RapidAPI-Host": RAPID_API_HOST },
+         next: {
+            revalidate: 60,
+         },
       });
       const data = await response.json();
 
+      console.log("After request to profile", data);
+
       if (response.status === 200) {
-         return ApiResponse.ok(data);
+         return ApiResponse.ok({ type, ...data });
       } else {
          return ApiResponse.fail({ message: { text: data }, status: response.status });
       }
    } catch (error) {
       return ApiResponse.internalServerError();
    }
-};
+}

@@ -16,6 +16,11 @@ export const HEADER = {
    MOBILE_HEIGHT: 60,
 };
 
+export const i18n = {
+   defaultLanguage: "en",
+   languages: ["en", "fa"],
+};
+
 export const defaultSettings = {
    themeMode: "light",
    themeDirection: "ltr",
